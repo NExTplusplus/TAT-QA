@@ -74,20 +74,15 @@
             <div class="container">
                 <h3>Getting Started</h3>
 
-
                 Download a copy of the dataset in json format:
 
                 <ul>
                         <li>
-                            <a href="">Training set</a>
+                            <a href="https://github.com/fengbinzhu/tat-qa/dataset_raw/tatqa_dataset_train.json">Training set</a>
                             <small>[MD5: cc5026bdfe51bb47d63e6c3d31714951]</small>
                         </li>
                         <li>
-                            <a href="">Dev set</a>
-                            <small>[MD5: 0b24a68b35fd814df5ad12cba548a8ea]</small>
-                        </li>
-                         <li>
-                            <a href="">Test set</a>
+                            <a href="https://github.com/fengbinzhu/tat-qa/dataset_raw/tatqa_dataset_dev.json">Dev set</a>
                             <small>[MD5: 0b24a68b35fd814df5ad12cba548a8ea]</small>
                         </li>
                 </ul>
@@ -175,7 +170,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td><a href="">Baseline - TagOp</a></td>
+                            <td><a href="https://github.com/fengbinzhu/tat-qa" target="_blank">Baseline - TagOp</a></td>
                             <td>NExT++</td>
                             <td><b>50.1</b></td>
                             <td><b>58.0</b></td>
@@ -219,7 +214,9 @@
   ...
 }
 </pre>
-                <p>We also provide a <a href="">sample prediction file (on Dev)</a> for your reference.</p>
+                <p>We also provide a <a href="https://github.com/fengbinzhu/tat-qa/blob/master/sample_prediction.json" target="_blank" >sample prediction file </a> (on Dev) for your reference.</p>
+
+                <pre>python tatqa_eval.py --gold_path=dataset_raw/tatqa_dataset_dev.json --pred_path=sample_prediction.json</pre>
                 <h4>Submission</h4>
                 <p>
                     Please email the prediction file of the test set with the following information to us:
@@ -271,8 +268,8 @@
                 <hr>
                 <p style="font-style: italic; text-align: center">
                     Copyright &copy; 2018-2021 NExT++ /
-                    <a class="black" href="http://www.nextcenter.org/privacy-policy">Privacy Policy</a> /
-                    <a class="black" href="http://www.nextcenter.org/terms-conditions">Terms &amp; Conditions</a>
+                    <a class="black" href="http://www.nextcenter.org/privacy-policy" target="_blank" >Privacy Policy</a> /
+                    <a class="black" href="http://www.nextcenter.org/terms-conditions" target="_blank" >Terms &amp; Conditions</a>
                 </p>
             </div>
         </footer>
