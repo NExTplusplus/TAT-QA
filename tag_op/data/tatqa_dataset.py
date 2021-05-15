@@ -933,7 +933,7 @@ class TagTaTQATestReader(object):
         if gold_op is None:
             gold_op = "ignore"
 
-        table_cell_tokens, table_ids, table_tags, table_cell_number_value, table_cell_index, table_mapping_content = \
+        table_cell_tokens, table_ids, table_tags, table_cell_number_value, table_cell_index = \
             table_test_tokenize(table, self.tokenizer, answer_mapping, answer_type)
 
         paragraph_tokens, paragraph_ids, paragraph_tags, paragraph_word_piece_mask, paragraph_number_mask, \
