@@ -3,7 +3,7 @@ TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Conten
 ====================
 
 **TAT-QA** (**T**abular **A**nd **T**extual dataset for **Q**uestion **A**nswering) contains 16,552 questions associated with 2,757 hybrid contexts 
-from real-world financial reports. For more details, please read our ACL 2021 paper [PDF]()
+from real-world financial reports. For more details, please read our ACL 2021 paper [PDF]().
                 
 ## The Dataset
 
@@ -141,17 +141,18 @@ Note: The result will be written into the folder `./tag_op/cache` default.
 
 #### Train & Evaluation 
 ```bash
-CUDA_VISIBLE_DEVICES=4 PYTHONPATH=$PYTHONPATH:$(pwd):$(pwd)/tag_op python tag_op/trainer.py --data_dir ./tag_op/cache/
---save_dir ./tag_op/model_robert_new_latest --batch_size 48 --eval_batch_size 8 --max_epoch 50 --warmup 0.06 --optimizer adam --learning_rate 5e-4 
---weight_decay 5e-5 --seed 123 --gradient_accumulation_steps 4 --bert_learning_rate 1.5e-5 --bert_weight_decay 0.01 --log_per_updates 50 --eps 1e-6 
---encoder [ENCODER NAME]
+CUDA_VISIBLE_DEVICES=2 PYTHONPATH=$PYTHONPATH:$(pwd) python tag_op/trainer.py --data_dir tag_op/cache/ \
+--save_dir ./checkpoint --batch_size 48 --eval_batch_size 8 --max_epoch 50 --warmup 0.06 --optimizer adam --learning_rate 5e-4 \
+--weight_decay 5e-5 --seed 123 --gradient_accumulation_steps 4 --bert_learning_rate 1.5e-5 --bert_weight_decay 0.01 \
+--log_per_updates 50 --eps 1e-6 --encoder roberta
 ```
 
 #### Testing
 ```bash
-CUDA_VISIBLE_DEVICES=4 PYTHONPATH=$PYTHONPATH:$(pwd):$(pwd)/tag_op python tag_op/predictor.py --data_dir tag_op/data/[ENCODER NAME] 
---save_dir tag_op/model_[ENCODER NAME] --eval_batch_size 8 --model_path tag_op/model_[ENCODER NAME]_new_latest --mode 2 --encoder [ENCODER NAME]
+CUDA_VISIBLE_DEVICES=2 PYTHONPATH=$PYTHONPATH:$(pwd) python tag_op/predictor.py --data_dir tag_op/cache/ --test_data_dir tag_op/cache/ \\
+--save_dir tag_op/ --eval_batch_size 32 --model_path ./checkpoint --encoder roberta
 ```
+
 
 Note: The training process may take around 2 days using a single 32GB v100.
 
@@ -162,6 +163,7 @@ Note: The training process may take around 2 days using a single 32GB v100.
 }
 ```
 
-### License
+### Any Question?
 
-MIT
+For any issues please create an issue [here](https://github.com/fengbinzhu/tat-qa/issues) or kindly email us at:
+Youcheng Huang [1361881994@qq.com](mailto:1361881994@qq.com) or Fengbin Zhu [zhfengbin@gmail.com](mailto:zhfengbin@gmail.com), thank you.

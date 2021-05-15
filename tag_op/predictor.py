@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser("Tagop training task.")
 options.add_data_args(parser)
 options.add_bert_args(parser)
 parser.add_argument("--eval_batch_size", type=int, default=32)
-parser.add_argument("--model_path", type=str, required=True)
+parser.add_argument("--model_path", type=str, default="checkpoint")
 parser.add_argument("--mode", type=int, default=1)
 parser.add_argument("--op_mode", type=int, default=0)
 parser.add_argument("--ablation_mode", type=int, default=0)
@@ -86,7 +86,7 @@ def main():
     model.reset()
     model.avg_reset()
     pred_json = model.predict(dev_itr)
-    json.dumps(pred_json,open(os.path.join(args.save_dir, 'pred_result_on_dev.json'), 'w'))
+    json.dump(pred_json,open(os.path.join(args.save_dir, 'pred_result_on_dev.json'), 'w'))
     model.get_metrics()
 
     logger.info("===========")
@@ -94,7 +94,7 @@ def main():
     model.reset()
     model.avg_reset()
     pred_json = model.predict(test_itr)
-    json.dumps(pred_json, open(os.path.join(args.save_dir, 'pred_result_on_test.json'),'w'))
+    json.dump(pred_json, open(os.path.join(args.save_dir, 'pred_result_on_test.json'),'w'))
     model.get_metrics()
 
 

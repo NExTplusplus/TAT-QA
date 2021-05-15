@@ -15,7 +15,7 @@ def evaluate_json(golden_answers: Dict[str, Any], predicted_answers: Dict[str, A
                 pred_answer, pred_scale = predicted_answers[query_id]
             em_and_f1(ground_truth=qa, prediction=pred_answer, pred_scale=pred_scale)
 
-    global_em, global_f1, global_scale = em_and_f1.get_overall_metric()
+    global_em, global_f1, global_scale, global_op = em_and_f1.get_overall_metric()
     print("----")
     print("Exact-match accuracy {0:.2f}".format(global_em * 100))
     print("F1 score {0:.2f}".format(global_f1 * 100))
