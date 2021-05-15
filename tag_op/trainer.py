@@ -116,7 +116,7 @@ def main():
 
         model.reset()
         model.avg_reset()
-        model.predict(dev_itr, 0)
+        model.predict(dev_itr)
         metrics = model.get_metrics(logger)
         model.avg_reset()
 
