@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <title>TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance">
+        <meta name="author" content="Fengbin Zhu, Wenqiang Lei, Chao Wang, Fuli Feng">
+        <link href="styles/bootstrap.min.css" rel="stylesheet">
+        <link href="styles/common.css" rel="stylesheet">
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h2 class="navbar-brand hidden-xs hidden-sm" style="padding-top: 0px;padding-bottom: 0px;height: 30px;line-height: 35px">
+                        <span class="logo">TAT-QA</span>
+                        <span class="description">QA over Real-world Tabular&Textual Content</span>
+                    </h2>
+
+                    <h2 class="navbar-brand hidden-md hidden-lg">
+                        <span class="logo">TAT-QA</span>
+                    </h2>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#introduction">Introduction</a></li>
+                        <li><a class="page-scroll" href="#start">Getting Started</a></li>
+                        <li><a class="page-scroll" href="#leaderboard">Leaderboard</a></li>
+                        <li><a class="page-scroll" href="#submission">Submission</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- linked this part-->
+        <section id="introduction" class="scrollable-section">
+            <div class="container">
+                <h3>Introduction</h3>
+                <p>
+                    <b>TAT-QA</b> (<b>T</b>abular <b>A</b>nd <b>T</b>extual dataset for <b>Q</b>uestion <b>A</b>nswering) is a large-scale QA dataset,
+                    comprising hybrid contexts extracted from real-word financial reports,
+                    where the table contains numbers and has comprehensive dependencies on text in finance domain.
+                    Each hybrid context composed of a table as well as at least two paragraphs that describe, analyse
+                    or complement the content of this table. Given hybrid contexts, we invite annotators with financial knowledge to
+                    generate questions that are useful in real-world financial analyses and provide answers accordingly.
+                    It is worth mentioning that a large portion of questions in TAT-QA demand numerical reasoning, such as addition,
+                    subtraction, multiplication, division, counting, comparison/sorting, and their compositions,
+                    for which derivation of the answer is also labeled to facilitate developing explainable models.
+                </p>
+                <p>
+                    In total, TAT-QA contains <b>16,552</b> questions associated with <b>2,757</b> hybrid contexts from real-world financial reports.
+                    For more details, please read our ACL 2021 paper  <a href="">[PDF]</a>.
+               </p>
+
+                <p>
+                <!--<img src="assets/tatqa-sample.png" alt="TAT-QA Sample" height="420" >-->
+            </div>
+        </section>
+
+        <section id="start" class="scrollable-section">
+            <div class="container">
+                <h3>Getting Started</h3>
+
+
+                Download a copy of the dataset in json format:
+
+                <ul>
+                        <li>
+                            <a href="">Training set</a>
+                            <small>[MD5: cc5026bdfe51bb47d63e6c3d31714951]</small>
+                        </li>
+                        <li>
+                            <a href="">Dev set</a>
+                            <small>[MD5: 0b24a68b35fd814df5ad12cba548a8ea]</small>
+                        </li>
+                         <li>
+                            <a href="">Test set</a>
+                            <small>[MD5: 0b24a68b35fd814df5ad12cba548a8ea]</small>
+                        </li>
+                </ul>
+
+<pre>
+{
+  "table": {                                                            <em class="comment"># The tabular data in a hybrid context</em>
+    "uid": "3ffd9053-a45d-491c-957a-1b2fa0af0570",                      <em class="comment"># The unique id of a table</em>
+    "table": [                                                          <em class="comment"># The table content which is 2d-array</em>
+      [
+        "",
+        "2019",
+        "2018",
+        "2017"
+      ],
+      [
+        "Fixed Price",
+        "$  1,452.4",
+        "$  1,146.2",
+        "$  1,036.9"
+      ],
+      ...
+    ]
+  },
+  "paragraphs": [                                                        <em class="comment"># The textual data in a hybrid context comprising at least two associated paragraphs to the table</em>
+    {
+      "uid": "f4ac7069-10a2-47e9-995c-3903293b3d47",                     <em class="comment"># The unique id of a paragraph</em>
+      "order": 1,                                                        <em class="comment"># The order of the paragraph in all associated paragraphs, starting from 1</em>
+      "text": "Sales by Contract Type: Substantially all of              <em class="comment"># The content of the paragraph</em>
+       our contracts are fixed-price type contracts.
+       Sales included in Other contract types represent cost
+       plus and time and material type contracts."
+    },
+    ...
+  ],
+  "questions": [                                                         <em class="comment"># The questions associated to the hybrid context</em>
+    {
+      "uid": "eb787966-fa02-401f-bfaf-ccabf3828b23",                     <em class="comment"># The unique id of a question</em>
+      "order": 2,                                                        <em class="comment"># The order of the question in all questions, starting from 1</em>
+      "question": "What is the change in Other in 2019 from 2018?",      <em class="comment"># The question itself</em>
+      "answer": -12.6,                                                   <em class="comment"># The ground-truth answer</em>
+      "derivation": "44.1 - 56.7",                                       <em class="comment"># The derivation that can be executed to arrive at the ground-truth answer</em>
+      "answer_type": "arithmetic",                                       <em class="comment"># The answer type including `span`, `spans`, `arithmetic` and `counting`.</em>
+      "answer_from": "table-text",                                       <em class="comment"># The source of the answer including `table`, `table` and `table-text`</em>
+      "rel_paragraphs": [                                                <em class="comment"># The orders of the paragraphs that are relied to infer the answer if any.</em>
+        "2"
+      ],
+      "req_comparison": false,                                           <em class="comment"># A flag indicating if `comparison/sorting` is needed to answer the question whose answer is a single span or multiple spans</em>
+      "scale": "million"                                                 <em class="comment"># The scale of the answer including `None`, `thousand`, `million`, `billion` and `percent`</em>
+    }
+  ]
+}
+</pre>
+
+            </div>
+        </section>
+
+        <section id="leaderboard" class="scrollable-section">
+            <div style="background-color: #e8e8e8">
+                <div class="container">
+                    <h3>Leaderboard</h3>
+
+                    <div class="table-responsive">
+                    <table class="table well">
+                        <thead class="thead-dark">
+
+                        <tr>
+                            <th>Rank</th>
+                            <th>Model Name</th>
+                            <th>Team Name</th>
+                            <th>Exact Match</th>
+                            <th>F1</th>
+                            <th>Created</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>Human Performance</td>
+                            <td>-</td>
+                            <td>84.1</td>
+                            <td>90.8</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><a href="">Baseline - TagOp</a></td>
+                            <td>NExT++</td>
+                            <td><b>50.1</b></td>
+                            <td><b>58.0</b></td>
+                            <td>13 May 2021</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="submission" class="scrollable-section">
+            <div class="container">
+                <h3>Submission</h3>
+                <p>
+                To evaluate your models, we have also made available the evaluation script we will use for official evaluation,
+                To run the evaluation, use
+                </p>
+                <pre>python tatqa_eval.py --gold_path=:path_to_dev --pred_path=:path_to_predictions</pre>
+
+                <h4>Predictions Format</h4>
+                <p> The predictions file in JSON format contains a dictionary with question ids as keys and the predictions as values
+                    (each prediction shall include both `answer` and `scale` in an array). For example,
+                </p>
+                <pre>
+{
+ "9337c3e6-c53f-45a9-836a-02c474ceac16": [
+    "4.6",
+    "percent"
+  ],
+  "c4170232-e89c-487a-97c5-afad45e9d702": [
+    "16",
+    "thousand"
+  ],
+  "d81d1ae7-363c-4b47-8eea-1906fef33856": [
+    ["2018", "2019"],
+    ""
+  ]
+  ...
+}
+</pre>
+                <p>We also provide a <a href="">sample prediction file (on Dev)</a> for your reference.</p>
+                <h4>Submission</h4>
+                <p>
+                    Please email the prediction file of the test set with the following information to us:
+                    <ul>
+                        <li>Model name with a brief description of your model</li>
+                        <li>Paper title & link (if any)</li>
+                        <li>Team name</li>
+                        <li>Contact person</li>
+                        <li>Email of the contact person</li>
+                    </ul>
+                </p>
+                <p>
+                Please give us up to two weeks to evaluate your submission and we will add your model to the leaderboard.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="scrollable-section">
+            <div class="container">
+                <h3>Contact</h3>
+                <p>
+                    For more information, please contact:
+                    <ul>
+                        <li>Fengbin ZHU<a href="mailto:fengbinzhu@u.nus.edu">fengbinzhu@u.nus.edu</a></li>
+                        <li>Wenqiang LEI <a href="mailto:dcsleiw@nus.edu.sg">dcsleiw@nus.edu.sg</a></li>
+                        <li>Fuli FENG <a href="mailto:dcsfeng@nus.edu.sg">dcsfeng@nus.edu.sg</a></li>
+                    </ul>
+                </p>
+                <p>
+                    Please kindly cite our work if the dataset helps your research.
+                </p>
+<pre>
+@inproceedings{zhu2021tatqa,
+    title={TAT-QA: },
+    author={Fengbin, Zhu},
+    booktitle={},
+    pages={},
+    year={2021},
+    organization={ACL}
+}
+
+</pre>
+            </div>
+            </div>
+        </section>
+
+        <footer class="footer" style="padding-top: 50px;">
+            <div class="container">
+                <hr>
+                <p style="font-style: italic; text-align: center">
+                    Copyright &copy; 2018-2021 NExT++ /
+                    <a class="black" href="http://www.nextcenter.org/privacy-policy">Privacy Policy</a> /
+                    <a class="black" href="http://www.nextcenter.org/terms-conditions">Terms &amp; Conditions</a>
+                </p>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="scripts/scrolling-nav.js"></script>
+    </body>
+</html>
