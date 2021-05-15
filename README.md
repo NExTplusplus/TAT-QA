@@ -153,7 +153,6 @@ CUDA_VISIBLE_DEVICES=2 PYTHONPATH=$PYTHONPATH:$(pwd) python tag_op/predictor.py 
 --save_dir tag_op/ --eval_batch_size 32 --model_path ./checkpoint --encoder roberta
 ```
 
-
 Note: The training process may take around 2 days using a single 32GB v100.
 
 ### Citation

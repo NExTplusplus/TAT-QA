@@ -435,7 +435,7 @@ class TagopModel(nn.Module):
                     predict_type = "arithmetic"
                 else:
                     predict_type = ""
-                self._metrics(gold_answers[bsz], answer, predict_type, SCALE[int(predicted_scale_class[bsz])])
+                self._metrics(gold_answers[bsz], answer, SCALE[int(predicted_scale_class[bsz])])
 
         return output_dict
 
