@@ -157,9 +157,7 @@ Note: The training process may take around 2 days using a single 32GB v100.
 
 ### Citation
 ```bash
-{
 
-}
 ```
 
 ### Any Question?
