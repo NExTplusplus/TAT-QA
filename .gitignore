@@ -1,6 +1,7 @@
 .pytest_cache
 *.pyc
 dataset*
+roberta.large
 .idea
 .DS_Store
 tag_op/cache
