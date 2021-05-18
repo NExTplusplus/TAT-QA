@@ -3,7 +3,7 @@ TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Conten
 ====================
 
 **TAT-QA** (**T**abular **A**nd **T**extual dataset for **Q**uestion **A**nswering) contains 16,552 questions associated with 2,757 hybrid contexts 
-from real-world financial reports. For more details, please read our ACL 2021 paper [PDF]().
+from real-world financial reports. For more details, please read our ACL 2021 paper [PDF](https://arxiv.org/pdf/2105.07624.pdf).
                 
 ## The Dataset
 
@@ -157,7 +157,14 @@ Note: The training process may take around 2 days using a single 32GB v100.
 
 ### Citation
 ```bash
-
+@misc{zhu2021tatqa,
+      title={TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance}, 
+      author={Fengbin Zhu and Wenqiang Lei and Youcheng Huang and Chao Wang and Shuo Zhang and Jiancheng Lv and Fuli Feng and Tat-Seng Chua},
+      year={2021},
+      eprint={2105.07624},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```
 
 ### Any Question?
