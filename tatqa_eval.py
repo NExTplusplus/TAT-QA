@@ -2,6 +2,7 @@
 import argparse
 import json
 from tatqa_metric import *
+from typing import Any, Dict, Tuple
 
 
 def evaluate_json(golden_answers: Dict[str, Any], predicted_answers: Dict[str, Any]) -> Tuple[float, float]:
