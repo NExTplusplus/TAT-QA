@@ -25,7 +25,7 @@ pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUD
 We adopt `RoBERTa` as our encoder to develop our TagOp and use the following commands to prepare RoBERTa model 
 
 ```bash
-cd dataset_togop
+cd dataset_tagop
 mkdir roberta.large && cd roberta.large
 wget -O pytorch_model.bin https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-pytorch_model.bin
 wget -O config.json https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json
