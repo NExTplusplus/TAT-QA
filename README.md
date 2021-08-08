@@ -7,7 +7,7 @@ from real-world financial reports.
 
 You can download our TAT-QA dataset via [TAT-QA dataset](https://github.com/NExTplusplus/TAT-QA/tree/master/dataset_raw).
                 
-For more information, please refer to our [TAT-QA website](https://nextplusplus.github.io/TAT-QA/) or read our ACL2021 paper [PDF](https://arxiv.org/pdf/2105.07624.pdf).
+For more information, please refer to our [TAT-QA website](https://nextplusplus.github.io/TAT-QA/) or read our ACL2021 paper [PDF](https://aclanthology.org/2021.acl-long.254.pdf).
 
 ## TagOp Model
 
