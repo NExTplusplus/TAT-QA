@@ -65,6 +65,8 @@ CUDA_VISIBLE_DEVICES=2 PYTHONPATH=$PYTHONPATH:$(pwd) python tag_op/predictor.py 
 Note: The training process may take around 2 days using a single 32GB v100.
 
 ### Citation
+
+__Please kindly cite our work if you use our dataset or codes, thank you.__
 ```bash
 @inproceedings{zhu-etal-2021-tat,
     title = "{TAT}-{QA}: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance",
