@@ -885,10 +885,10 @@ class TagTaTQATestReader(object):
 
     def summerize_op(self, derivateion, answer_type, facts, answer, answer_mapping, scale):
         if answer_type == "span":
-            if "table" in answer_mapping.keys():
+            if "table" in answer_mapping.keys()  and answer_mapping["table"]:
                 self.op_count["Cell-in-table"] += 1
                 return "Cell-in-table"
-            elif "paragraph" in answer_mapping.keys():
+            elif "paragraph" in answer_mapping.keys() and answer_mapping["paragraph"]:
                 self.op_count["Span-in-text"] += 1
                 return "Span-in-text"
         elif answer_type == "multi-span":
@@ -972,13 +972,13 @@ class TagTaTQATestReader(object):
             for question_answer in questions:
                 try:
                     question = question_answer["question"].strip()
-                    answer_type = question_answer["answer_type"]
-                    answer = question_answer["answer"]
-                    answer_from = question_answer["answer_from"]
-                    answer_mapping = question_answer["mapping"]
-                    scale = question_answer["scale"]
-                    derivation = question_answer['derivation']
-                    facts = question_answer['facts']
+                    answer_type = question_answer["answer_type"] if "answer_type" in question_answer else ""
+                    answer = question_answer["answer"] if "answer" in question_answer else ""
+                    answer_from = question_answer["answer_from"] if "answer_from" in question_answer else ""
+                    answer_mapping = question_answer["mapping"] if "mapping" in question_answer else {} 
+                    scale = question_answer["scale"] if "scale" in question_answer else ""
+                    derivation = question_answer['derivation'] if "derivation" in question_answer else ""
+                    facts = question_answer['facts'] if "facts" in question_answer else ""
                     instance = self._to_test_instance(question, table, paragraphs, answer_from,
                                     answer_type, answer, answer_mapping, scale, question_answer["uid"], derivation, facts)
                     if instance is not None:
