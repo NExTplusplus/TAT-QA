@@ -64,6 +64,10 @@ CUDA_VISIBLE_DEVICES=2 PYTHONPATH=$PYTHONPATH:$(pwd) python tag_op/predictor.py 
 
 Note: The training process may take around 2 days using a single 32GB v100.
 
+#### Checkpoint
+You may download this checkpoint of the trained TagOp model vai [TagOp Checkpoint](https://drive.google.com/file/d/1Ttyh1xyulsGcOt_JmFsAhPuxx7G3fyha/view?usp=share_link)
+
+
 ### Citation
 
 __Please kindly cite our work if you use our dataset or codes, thank you.__
