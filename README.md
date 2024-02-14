@@ -97,8 +97,10 @@ __Please kindly cite our work if you use our dataset or codes, thank you.__
     pages = "3277--3287"
 }
 ```
+### License
 
-### Any Question?
+The TAT-QA dataset is under the license of [Creative Commons (CC BY) Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
+            
+### Any Questions?
 
-For any issues please create an issue [here](https://github.com/nextplusplus/tat-qa/issues) or kindly email us at:
-Youcheng Huang [1361881994@qq.com](mailto:1361881994@qq.com) or Fengbin Zhu [zhfengbin@gmail.com](mailto:zhfengbin@gmail.com), thank you.
+For any issues please create an issue [here](https://github.com/nextplusplus/tat-qa/issues) or kindly drop an email to the author: Fengbin Zhu [zhfengbin@gmail.com](mailto:zhfengbin@gmail.com), thank you.
