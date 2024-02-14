@@ -10,9 +10,12 @@ You can download our TAT-QA dataset via [TAT-QA dataset](https://github.com/NExT
 For more information, please refer to our [TAT-QA website](https://nextplusplus.github.io/TAT-QA/) or read our ACL2021 paper [PDF](https://aclanthology.org/2021.acl-long.254.pdf).
 
 ## Updates 
-**[TAT-DQA](https://nextplusplus.github.io/TAT-DQA/)** is a large-scale Document Visual QA (VQA) dataset, which is constructed by extending the TAT-QA. 
 
-Please check out it if you are interested in the new task. 
+**${\color{red}Jan 2024:}$**  We release the ground truth for the TAT-QA Test set under the folder [TAT-QA dataset](https://github.com/NExTplusplus/TAT-QA/tree/master/dataset_raw), to facilitate future research on this task!
+
+**${\color{red}May 2023:}$** **[TAT-DQA](https://nextplusplus.github.io/TAT-DQA/)** is released! TAT-DQA is a large-scale Document Visual QA (VQA) dataset, which is constructed by extending the TAT-QA. Please check out it if you are interested in the new task. 
+
+
 
 ## TagOp Model
 
